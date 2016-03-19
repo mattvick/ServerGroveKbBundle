@@ -21,41 +21,41 @@ class LoadCategoriesData implements FixtureInterface, OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $session = $manager->getPhpcrSession();
-        $session->getRootNode()->addNode('categories');
+        // $session = $manager->getPhpcrSession();
+        // $session->getRootNode()->addNode('categories');
 
-        /** @var $parent \Doctrine\ODM\PHPCR\Document\Generic */
-        $parent = $manager->find(null, '/categories');
+        // /** @var $parent \Doctrine\ODM\PHPCR\Document\Generic */
+        // $parent = $manager->find(null, '/categories');
 
-        $cat1 = $this->addCategory($manager, 'Homepage', 'Category for homepage articles', $parent, true);
-        $this->addTranslation($manager, $cat1, 'es', 'Inicio', 'Categoria inicio');
-        $this->addTranslation($manager, $cat1, 'pt', 'Inicio', 'Categoria inicio');
+        // $cat1 = $this->addCategory($manager, 'Homepage', 'Category for homepage articles', $parent, true);
+        // $this->addTranslation($manager, $cat1, 'cs', 'Inicio', 'Categoria inicio');
+        // // $this->addTranslation($manager, $cat1, 'pt', 'Inicio', 'Categoria inicio');
 
-        $cat2 = $this->addCategory($manager, 'Category A', 'Description', $parent);
-        $this->addTranslation($manager, $cat2, 'es', 'Categoria A', 'Categoria A');
-        $this->addTranslation($manager, $cat2, 'pt', 'Categoria A', 'Categoria A');
+        // $cat2 = $this->addCategory($manager, 'Category A', 'Description', $parent);
+        // $this->addTranslation($manager, $cat2, 'cs', 'Categoria A', 'Categoria A');
+        // // $this->addTranslation($manager, $cat2, 'pt', 'Categoria A', 'Categoria A');
 
-        $cat3 = $this->addCategory($manager, 'Category B', 'Description', $parent);
-        $this->addTranslation($manager, $cat3, 'es', 'Categoria B', 'Categoria B');
-        $this->addTranslation($manager, $cat3, 'pt', 'Categoria B', 'Categoria B');
+        // $cat3 = $this->addCategory($manager, 'Category B', 'Description', $parent);
+        // $this->addTranslation($manager, $cat3, 'cs', 'Categoria B', 'Categoria B');
+        // // $this->addTranslation($manager, $cat3, 'pt', 'Categoria B', 'Categoria B');
 
-        $cat4 = $this->addCategory($manager, 'Category C', 'Description', $parent);
-        $this->addTranslation($manager, $cat4, 'es', 'Categoria C', 'Categoria AC');
-        $this->addTranslation($manager, $cat4, 'pt', 'Categoria C', 'Categoria AC');
+        // $cat4 = $this->addCategory($manager, 'Category C', 'Description', $parent);
+        // $this->addTranslation($manager, $cat4, 'cs', 'Categoria C', 'Categoria AC');
+        // // $this->addTranslation($manager, $cat4, 'pt', 'Categoria C', 'Categoria AC');
 
-        $category = $this->addCategory($manager, 'Test', 'This is the description of the test category', $parent);
-        $subcat1 = $this->addCategory($manager, 'Child', 'Description of child category', $category);
-        $this->addTranslation($manager, $subcat1, 'es', 'Hija', 'Categoria Hija');
-        $this->addTranslation($manager, $subcat1, 'pt', 'Hija', 'Categoria Hija');
-        /*
-              $category = $this->addCategory($manager, 'CategoryD', 'This is the description of the test category', $parent);
-              $this->addCategory($manager, 'Child', 'Description of child category', $category);
-        */      $manager->flush();
+        // $category = $this->addCategory($manager, 'Test', 'This is the description of the test category', $parent);
+        // $subcat1 = $this->addCategory($manager, 'Child', 'Description of child category', $category);
+        // $this->addTranslation($manager, $subcat1, 'cs', 'Hija', 'Categoria Hija');
+        // // $this->addTranslation($manager, $subcat1, 'pt', 'Hija', 'Categoria Hija');
+        // /*
+        //       $category = $this->addCategory($manager, 'CategoryD', 'This is the description of the test category', $parent);
+        //       $this->addCategory($manager, 'Child', 'Description of child category', $category);
+        // */      $manager->flush();
 
-        $this->addTranslation($manager, $category, 'es', 'Prueba', 'Esta es la descripción de la categoría de prueba');
-        $this->addTranslation($manager, $category, 'pt', 'Prueba', 'Esta es la descripción de la categoría de prueba');
+        // $this->addTranslation($manager, $category, 'cs', 'Prueba', 'Esta es la descripción de la categoría de prueba');
+        // // $this->addTranslation($manager, $category, 'pt', 'Prueba', 'Esta es la descripción de la categoría de prueba');
 
-        $manager->flush();
+        // $manager->flush();
     }
 
     /**
@@ -74,6 +74,7 @@ class LoadCategoriesData implements FixtureInterface, OrderedFixtureInterface
         $category->setName($name);
         $category->setDescription($description);
         $category->setVisibility($private ? Category::VISIBILITY_PRIVATE : Category::VISIBILITY_PUBLIC);
+        $category->setUpdated();
 
         $manager->persist($category);
         $manager->bindTranslation($category, 'en');

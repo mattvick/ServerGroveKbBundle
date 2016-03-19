@@ -39,18 +39,19 @@ class LoadArticlesData implements FixtureInterface, OrderedFixtureInterface
 
         $article->setTitle('El título de mi artículo');
         $article->setContent('El contenido de mi artículo');
-        $manager->bindTranslation($article, 'es');
+        $manager->bindTranslation($article, 'cs');
 
         $article = $this->addArticle(
             $manager,
             'The title of the other article',
             $description,
-            array_map(
-                function ($category) use ($manager) {
-                    return $manager->find(null, '/categories/'.$category);
-                },
-                array('test/child', 'homepage', 'test', 'category-a', 'category-c')
-            ),
+            array(),
+            // array_map(
+            //     function ($category) use ($manager) {
+            //         return $manager->find(null, '/categories/'.$category);
+            //     },
+            //     array('test/child', 'homepage', 'test', 'category-a', 'category-c')
+            // ),
             array('My super keyword', 'feature'),
             $manager->find(null, '/url/control-panel-v2-launched-with-mongohosting-and-lots-more'),
             array(array('key' => 'test-key-2', 'value' => 'test-value-2'))
@@ -80,15 +81,17 @@ class LoadArticlesData implements FixtureInterface, OrderedFixtureInterface
         $article
             ->setTitle($title)
             ->setContent($content)->setContentType('markdown')
-            ->setIsActive(true);
+            ->setIsActive(true)
+            ->registerUpdated()
+            ->setViews(1);
 
         if (!is_null($url)) {
             $article->addUrl($url);
         }
 
-        foreach ($categories as $category) {
-            $article->addCategory($category);
-        }
+        // foreach ($categories as $category) {
+        //     $article->addCategory($category);
+        // }
 
         foreach ($keywords as $keyword) {
             $article->addKeyword($keyword);
