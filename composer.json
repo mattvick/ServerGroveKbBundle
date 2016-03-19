@@ -19,7 +19,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": ">=2.0,<3.0",
+        "symfony/framework-bundle": "2.*",
         "jackalope/jackalope-doctrine-dbal": "1.2.*",
         "doctrine/phpcr-odm": "1.2.*",
         "doctrine/phpcr-bundle": "1.2.*",
@@ -34,6 +34,6 @@
     },
     "target-dir": "ServerGrove/KbBundle",
     "require-dev": {
-        "symfony/finder": ">=2.0,<3.0"
+        "symfony/finder": "2.*"
     }
 }
