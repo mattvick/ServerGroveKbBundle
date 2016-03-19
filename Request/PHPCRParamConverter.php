@@ -2,7 +2,7 @@
 
 namespace ServerGrove\KbBundle\Request;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ODM\PHPCR\DocumentManager;
@@ -30,12 +30,12 @@ class PHPCRParamConverter implements ParamConverterInterface
     }
 
     /**
-     * @param Request                $request
-     * @param ConfigurationInterface $configuration
+     * @param Request        $request       The request
+     * @param ParamConverter $configuration Contains the name, class and options of the object
      *
      * @return bool
      */
-    public function apply(Request $request, ConfigurationInterface $configuration)
+    public function apply(Request $request, ParamConverter $configuration)
     {
         $name    = $configuration->getName();
         $class   = $configuration->getClass();
@@ -53,11 +53,11 @@ class PHPCRParamConverter implements ParamConverterInterface
     }
 
     /**
-     * @param ConfigurationInterface $configuration
+     * @param ParamConverter $configuration Should be an instance of ParamConverter
      *
-     * @return bool
+     * @return bool True if the object is supported, else false
      */
-    public function supports(ConfigurationInterface $configuration)
+    public function supports(ParamConverter $configuration)
     {
         if (preg_match('/[a-zA-Z]+\:[a-zA-Z]+/', $configuration->getClass())) {
             return true;
