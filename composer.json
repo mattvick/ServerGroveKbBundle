@@ -20,11 +20,11 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": ">=2.0,<3.0",
-        "doctrine/phpcr-bundle": "dev-master",
-        "doctrine/phpcr-odm": "dev-master",
+        "doctrine/phpcr-bundle": "1.2.*",
+        "doctrine/phpcr-odm": "1.2.*",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "servergrove/translation-editor-bundle": "dev-master",
-        "jackalope/jackalope-jackrabbit": "dev-master",
+        "jackalope/jackalope-doctrine-dbal": "1.2.*",
         "knplabs/knp-markdown-bundle": "dev-master"
     },
     "autoload": {
@@ -34,6 +34,6 @@
     },
     "target-dir": "ServerGrove/KbBundle",
     "require-dev": {
-        "symfony/finder": ">=2.0,<2.3-dev"
+        "symfony/finder": ">=2.0,<3.0"
     }
 }
