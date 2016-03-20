@@ -52,7 +52,6 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface
         $user->setEnabled(true);
         $user->setLocked(false);
         $user->setEmail($email);
-        $user->setExpirationDate(new \DateTime('+100 year'));
 
         foreach ($roles as $role) {
             $user->addRole($role);

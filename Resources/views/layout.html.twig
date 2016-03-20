@@ -48,14 +48,14 @@
                 </div>
                 {% include "ServerGroveKbBundle:Default:breadcrumb.html.twig" %}
                 <div class="span2">
-{#                     {% render "ServerGroveKbBundle:Categories:selector" with { 'topCategory': category is defined ?
+                    {% render "ServerGroveKbBundle:Categories:selector" with { 'topCategory': category is defined ?
                             category.getTopCategory() :
                             article is defined ?
                             article.getDefaultCategory().getTopCategory() : null
-                            } %} #}
+                            } %}
                 </div>
                 <div class="span10">
-                    {# {% render "ServerGroveKbBundle:Default:searchForm" %} #}
+                    {% render "ServerGroveKbBundle:Default:searchForm" %}
                     {% block content %}{% endblock content %}
                 </div>
 

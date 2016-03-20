@@ -28,7 +28,7 @@ class LoadUrlData implements FixtureInterface, OrderedFixtureInterface
         $url = $this->addUrl($manager, 'Announcing multi-lingual support for Control Panel', 'http://blog.servergrove.com/2012/01/17/announcing-multi-lingual-support-for-control-panel/');
 
         $url->setName('Nuestro Panel de Control habla español!')->setUrl('http://blog.servergrove.com/2012/01/17/nuestro-panel-de-control-habla-espanol/');
-        $manager->bindTranslation($url, 'cs');
+        $manager->bindTranslation($url, 'es');
 
         $manager->flush();
     }
