@@ -20,9 +20,9 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "2.*",
-        "jackalope/jackalope-doctrine-dbal": "1.0.*",
-        "doctrine/phpcr-odm": "1.0.*",
-        "doctrine/phpcr-bundle": "1.0.*",
+        "jackalope/jackalope-doctrine-dbal": "1.1.*",
+        "doctrine/phpcr-odm": "1.1.*",
+        "doctrine/phpcr-bundle": "1.1.*",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "servergrove/translation-editor-bundle": "dev-master",
         "knplabs/knp-markdown-bundle": "dev-master"
